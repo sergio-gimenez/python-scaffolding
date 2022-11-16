@@ -12,8 +12,8 @@ REQUIRED_PKG="virtualenv"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
-  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  sudo apt-get --yes install $REQUIRED_PKG
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt-get --yes install $REQUIRED_PKG
 fi
 
 
@@ -21,6 +21,9 @@ if [[ ! -f ${venv_path} ]]; then
     echo "Creating virtualenv folder"
     virtualenv -p /usr/bin/python3.8 ${venv_path}
 fi
+
+echo "Activating virtualenv and installing requirements"
+source ${venv_path}/bin/activate && pip install -r ${curr_root_path}/deploy/requirements.txt
 
 echo """
 Start working on the virtualenv folder with:
