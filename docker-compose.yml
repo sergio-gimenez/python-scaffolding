@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  ibapi:
+    container_name: app
+    build: .
+    ports:
+      - "5566:5566"
