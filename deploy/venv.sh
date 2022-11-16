@@ -25,6 +25,15 @@ fi
 echo "Activating virtualenv and installing requirements"
 source ${venv_path}/bin/activate && pip install -r ${curr_root_path}/deploy/requirements.txt
 
+while true; do
+    read -p "Do you wish to have a web framework using Fast API? [y/n]" yn
+    case $yn in
+        [Yy]* ) pip install fastapi[all]; break;;
+        [Nn]* ) echo "Ok";break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
 echo """
 Start working on the virtualenv folder with:
 
