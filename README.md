@@ -28,5 +28,13 @@ Just a directory to store the tests. I usually write tests with `unittest` modul
 
 ### Source
 
-The `src` directory is where the code is stored. I usually end having to expose and API, so I created an `api.py` and `api_schema.py` to store the API code. The `api.py` file is where the API is defined, and the `api_schema.py` is where the API schema is defined. I always use [FastAPI](https://fastapi.tiangolo.com/) to create the API: it is super simple, they have great documentation and my favorite thing, it generates a swagger documentation with 0 effort.
+The `src` directory is where the code is stored. 
+
+### API
+
+I usually end having to expose and API, so I created an `api.py` and `api_schema.py` to store the API code. The `api.py` file is where the API is defined, and the `api_schema.py` is where the API schema is defined. I always use [FastAPI](https://fastapi.tiangolo.com/) to create the API: it is super simple, they have great documentation and my favorite thing, it generates a swagger documentation with 0 effort.
+
+To run the API, just make sure you answer `"y"` to the question `Do you want to run the API?` when you run the `./deploy/venv.sh` script. Then, you can run the API by `uvicorn src.api:app --reload` and access it in `http://localhost:8000/docs` URL (URL by default).
+
+For more info, check the [FastAPI documentation](https://fastapi.tiangolo.com/). It's simple, complete and easy to follow.
 
