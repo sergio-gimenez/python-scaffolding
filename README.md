@@ -38,3 +38,52 @@ To run the API, just make sure you answer `"y"` to the question `Do you want to 
 
 For more info, check the [FastAPI documentation](https://fastapi.tiangolo.com/). It's simple, complete and easy to follow.
 
+## How to use it
+
+### Running Code
+
+The best way I find to run code in order to avoid weir import errors is to run the python module with the `-m` flag. For example, if you want to run the `api.py` file, you can run the following command:
+
+```bash
+python -m src.api
+```
+
+The reasoning behind that is well explained in this [PythonPathSadness wiki page](https://github.com/asottile/scratch/wiki/PythonPathSadness), also better explained in [video form](https://www.youtube.com/watch?v=hgCVIa5qQhM)
+
+### ⚠ Importing Modules ⚠
+
+⚠ **Very important** ⚠, I have had a lot of trouble with weird import errors. So far, the best way I found to import modules in the same project, is to use the `from path import module` syntax. For example, if you want to import the `api_schema.py` file in the `api.py` file, you can do it like this:
+
+```python
+# We are in api.py file
+from src import api_schema
+```
+
+In two-level depth directories, you can do it like follows. Let's assume the following project directory tree inside `src`:
+
+```source
+src
+├── api.py
+├── api_schema.py
+├── app.log
+├── core
+│   ├── cool_core_module.py
+│   └── __init__.py
+├── init.py
+└── logger.py
+```
+
+We are in `api.py` file, and we want to import the `cool_core_module.py` file. We can do it like this:
+
+```python
+# We are in api.py file
+
+# Importing the core module
+from src.core import cool_core_module
+```
+
+Last, but not least, make sure that every file has the `__init__.py` file. This is needed to make Python treat the directories as containing packages. I've read about that trying to understand the behaviour, but due to the fact that I don't really have good memory and the fact that its effect changes between python versions, I always end up adding the `__init__.py` file to every directory.
+
+So far, this is the approach that works for me. I have been struggling to find a "propper" way to structure python projects. The best thing that I found, is to check big open-source projects, like [Django](https://github.com/django/django) or [Keras](https://github.com/keras-team/keras) and see how they structure their projects.
+
+However, I'm constantly learning, so if you have any suggestion, please let me know.
