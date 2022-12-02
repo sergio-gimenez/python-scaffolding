@@ -48,6 +48,9 @@ The best way I find to run code in order to avoid weir import errors is to run t
 python -m src.api
 ```
 
+⚠ Important. Beware that we are removing the `.py` suffix on the `python -m` command. Running modules with `-m` only requires module names, unlike when you run it directly as a python file (no `-m` option), that it requires the `.py` suffix.
+
+
 The reasoning behind that is well explained in this [PythonPathSadness wiki page](https://github.com/asottile/scratch/wiki/PythonPathSadness), also better explained in [video form](https://www.youtube.com/watch?v=hgCVIa5qQhM)
 
 ### ⚠ Importing Modules ⚠
