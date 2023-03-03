@@ -19,7 +19,7 @@ fi
 
 if [[ ! -f ${venv_path} ]]; then
     echo "Creating virtualenv folder"
-    virtualenv -p /usr/bin/python3.8 ${venv_path}
+    virtualenv -p /usr/bin/python3 ${venv_path}
 fi
 
 echo "Activating virtualenv and installing requirements"
