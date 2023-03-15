@@ -3,7 +3,7 @@ import sys
 from colorlog import ColoredFormatter
 
 
-APP_LOGGER_NAME = 'IntentBasedAPI'
+APP_LOGGER_NAME = 'app'
 COLORED_FORMATERR = "%(log_color)s%(levelname)s%(reset)s | [%(log_color)s%(name)s%(reset)s:%(log_color)s%(lineno)d%(reset)s] %(log_color)s%(message)s%(reset)s"
 FILE_FORMATTER = "[%(asctime)s] {%(name)s: %(lineno)d} %(levelname)s - %(message)s"
 
